@@ -27,7 +27,9 @@ export type RegionConfig = {
   spelling: "au" | "us";
   /** Shown after the company name where a place is needed. */
   location: string;
-  contact: { phones: Phone[]; email: string; address: string[]; website: string };
+  /** Hero / footer value proposition, when the region words it for its market. */
+  valueProp?: string;
+  contact: { phones: Phone[]; email: string; address: string[]; website: string; whatsapp?: string };
   /** Structured-data postal address for the Organization schema. */
   postal: { streetAddress: string; addressLocality: string; addressRegion: string; postalCode: string; addressCountry: string };
   /** Footer membership badges (only where the membership applies). */
@@ -98,11 +100,14 @@ export const REGIONS: Record<RegionId, RegionConfig> = {
     lang: "en-IN",
     spelling: "au",
     location: "Gurugram, India",
+    valueProp:
+      "AptaCloud modernises the systems mid-sized insurance, oil & gas, and construction firms across India run on, and puts AI to work on top of them. We prove it on your data first.",
     contact: {
       phones: [IN_PHONE],
       email: EMAIL,
       address: ["Platinum Tower, Unit 1024", "Gurugram, Haryana 122018, India"],
       website: "aptacloud.com/in",
+      whatsapp: IN_PHONE.number,
     },
     postal: { streetAddress: "Platinum Tower, Unit 1024", addressLocality: "Gurugram", addressRegion: "Haryana", postalCode: "122018", addressCountry: "IN" },
     badges: [],

@@ -107,4 +107,5 @@ marks belong to their owners and are shown monochrome to identify tools only.
 - us-dallas.jpg: Dallas skyline, Pexels 2051002
 - au-sydney.jpg: Sydney Opera House, Pexels 26840173
 - in-delhi.jpg: India Gate, New Delhi, Pexels 31366998
-- uae-dubai.jpg: Dubai skyline, Pexels 33687795
+- uae-dubai.jpg: Dubai skyline, Pexels 33687795- in-gurugram.jpg: Gurugram office facade, Pexels 34725803
+- in-pune.jpg: Pune high-rises, WordPress Photo Directory (CC0), pd.w.org/2024/02/18465d1037c948a94
