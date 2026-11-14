@@ -12,6 +12,7 @@ import regionFile from "../../region.json";
 export type RegionId = "us" | "au" | "in" | "uae";
 
 type Phone = { number: string; flag: string; country: string };
+export type LocalPhoto = { src: string; alt: string; position?: string };
 
 export type RegionConfig = {
   id: RegionId;
@@ -35,6 +36,8 @@ export type RegionConfig = {
   /** Footer membership badges (only where the membership applies). */
   badges: { src: string; alt: string }[];
   areaServed: string[];
+  /** Local photos for this region, keyed by the shared (AU) photo path they replace. */
+  photos?: Record<string, LocalPhoto>;
   /** The region's card in the Global presence section. */
   card: { place: string; text: string; timeZone: string; photo: { src: string; alt: string; position?: string } };
 };
@@ -129,10 +132,26 @@ export const REGIONS: Record<RegionId, RegionConfig> = {
     lang: "en-AE",
     spelling: "au",
     location: "United Arab Emirates",
-    contact: { phones: [IN_PHONE], email: EMAIL, address: HQ_ADDRESS, website: "aptacloud.com/uae" },
+    valueProp:
+      "AptaCloud modernises the systems mid-sized insurance, oil & gas, and construction firms across the UAE run on, and puts AI to work on top of them. We prove it on your data first.",
+    contact: {
+      phones: [IN_PHONE],
+      email: EMAIL,
+      address: ["Global headquarters", ...HQ_ADDRESS],
+      website: "aptacloud.com/uae",
+      whatsapp: IN_PHONE.number,
+    },
     postal: HQ_POSTAL,
     badges: [],
     areaServed: ["United Arab Emirates"],
+    photos: {
+      "/images/photos/hero-developer.jpg": { src: "/images/photos/regions/uae/hero.jpg", alt: "", position: "60% 50%" },
+      "/images/photos/hero-developer-2.jpg": { src: "/images/photos/regions/uae/about.jpg", alt: "An AptaCloud specialist smiling while working on a laptop", position: "55% 40%" },
+      "/images/photos/d365-implementation.jpg": { src: "/images/photos/regions/uae/team.jpg", alt: "Three colleagues planning a rollout around a laptop at a boardroom table", position: "50% 50%" },
+      "/images/photos/d365-optimization.jpg": { src: "/images/photos/regions/uae/room.jpg", alt: "", position: "45% 50%" },
+      "/images/photos/workshop-analysis.jpg": { src: "/images/photos/regions/uae/workshop-analysis.jpg", alt: "A consultant mapping a workflow on a whiteboard", position: "55% 40%" },
+      "/images/photos/workshop-hands-on.jpg": { src: "/images/photos/regions/uae/workshop-hands-on.jpg", alt: "Colleagues working through a live example together with laptops and notes", position: "50% 45%" },
+    },
     card: {
       place: "Across the UAE",
       text: "Microsoft cloud, data, and AI for businesses across the UAE.",
@@ -153,6 +172,10 @@ export const REGION = REGIONS[id];
 
 /** The production-preview origin all four sites share (GitHub Pages user site). */
 export const SITE_ORIGIN = "https://designerhimalay-stack.github.io";
+
+/** The region's own photo for a shared slot, or the shared photo when it has none. */
+export const localPhoto = (src: string, alt: string, position?: string): LocalPhoto =>
+  REGION.photos?.[src] ?? { src, alt, position };
 
 /** A region's home URL (absolute), for the switcher and hreflang. */
 export const regionHome = (r: RegionConfig) => `${SITE_ORIGIN}${r.base}/`;
