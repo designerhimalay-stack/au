@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://designerhimalay-stack.github.io/aptacloud/sitemap.xml
+Sitemap: https://designerhimalay-stack.github.io/au/sitemap.xml
