@@ -1,3 +1,4 @@
+import { BASE as REGION_BASE } from "../region/base.mjs";
 // Usage: node shoot.mjs <path> <name> [width=1440] [mode=full|fold|menu] [height]
 // Screenshots the dev site with Chrome. Reduced motion so reveals/scroll effects settle.
 import { chromium } from "playwright-core";
@@ -16,7 +17,7 @@ const page = await ctx.newPage();
 const errors = [];
 page.on("pageerror", (e) => errors.push(String(e)));
 page.on("console", (m) => m.type() === "error" && errors.push(m.text()));
-await page.goto(`http://localhost:4321/aptacloud${path}`, { waitUntil: "networkidle" });
+await page.goto(`http://localhost:4321${REGION_BASE.replace(/\/$/, "")}${path}`, { waitUntil: "networkidle" });
 
 if (mode === "full") {
   // walk the page so lazy images and in-view reveals fire

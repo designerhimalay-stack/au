@@ -1,0 +1,153 @@
+// ─────────────────────────────────────────────────────────────────────────
+//  REGIONS — one codebase, four sites (four repos).
+//  Each repo sets its region in /region.json; everything region-specific
+//  (base path, contacts, spelling, locale, footer badges) comes from here.
+//    US  → /      (global site, repo designerhimalay-stack.github.io)
+//    AU  → /au/   (repo au, the upstream)
+//    IN  → /in/   (repo in)
+//    UAE → /uae/  (repo uae)
+// ─────────────────────────────────────────────────────────────────────────
+import regionFile from "../../region.json";
+
+export type RegionId = "us" | "au" | "in" | "uae";
+
+type Phone = { number: string; flag: string; country: string };
+
+export type RegionConfig = {
+  id: RegionId;
+  /** Short code shown in the region switcher. */
+  code: string;
+  label: string;
+  flag: string;
+  /** URL base path (no trailing slash; "" for the root site). */
+  base: string;
+  /** BCP 47 tag for <html lang>, hreflang, and Open Graph. */
+  lang: string;
+  /** Copy spelling: "au" keeps the source (Australian) copy, "us" converts at build time. */
+  spelling: "au" | "us";
+  /** Shown after the company name where a place is needed. */
+  location: string;
+  contact: { phones: Phone[]; email: string; address: string[]; website: string };
+  /** Structured-data postal address for the Organization schema. */
+  postal: { streetAddress: string; addressLocality: string; addressRegion: string; postalCode: string; addressCountry: string };
+  /** Footer membership badges (only where the membership applies). */
+  badges: { src: string; alt: string }[];
+  areaServed: string[];
+  /** The region's card in the Global presence section. */
+  card: { place: string; text: string; timeZone: string; photo: { src: string; alt: string; position?: string } };
+};
+
+const EMAIL = "contact@aptacloud.com";
+const HQ_ADDRESS = ["801 E Campbell Rd, Ste 365", "Richardson, TX 75081, USA"];
+const HQ_POSTAL = { streetAddress: "801 E Campbell Rd, Ste 365", addressLocality: "Richardson", addressRegion: "TX", postalCode: "75081", addressCountry: "US" };
+const US_PHONES: Phone[] = [
+  { number: "+1 (972) 928-2341", flag: "us", country: "United States" },
+  { number: "+1 (972) 779-6347", flag: "us", country: "United States" },
+];
+const IN_PHONE: Phone = { number: "+91 98180 50070", flag: "in", country: "India" };
+const ALLEN_CHAMBER = { src: "/images/badges/allen-chamber.png", alt: "Proud member: Allen Chamber of Commerce 2026" };
+
+export const REGIONS: Record<RegionId, RegionConfig> = {
+  us: {
+    id: "us",
+    code: "US",
+    label: "United States",
+    flag: "us",
+    base: "",
+    lang: "en-US",
+    spelling: "us",
+    location: "Richardson, Texas",
+    contact: { phones: US_PHONES, email: EMAIL, address: HQ_ADDRESS, website: "aptacloud.com" },
+    postal: HQ_POSTAL,
+    badges: [ALLEN_CHAMBER],
+    areaServed: ["United States", "Mexico"],
+    card: {
+      place: "Richardson, Texas",
+      text: "Our headquarters, with delivery teams in the United States and Mexico.",
+      timeZone: "America/Chicago",
+      photo: { src: "/images/photos/regions/us-dallas.jpg", alt: "The Dallas skyline on a clear day", position: "70% 50%" },
+    },
+  },
+  // AU contact details are pending from the client; the HQ details stand in until then.
+  au: {
+    id: "au",
+    code: "AU",
+    label: "Australia",
+    flag: "au",
+    base: "/au",
+    lang: "en-AU",
+    spelling: "au",
+    location: "Richardson, Texas",
+    contact: { phones: US_PHONES, email: EMAIL, address: HQ_ADDRESS, website: "aptacloud.com/au" },
+    postal: HQ_POSTAL,
+    badges: [ALLEN_CHAMBER],
+    areaServed: ["Australia"],
+    card: {
+      place: "Across Australia",
+      text: "Microsoft cloud, data, and AI for mid-sized Australian firms.",
+      timeZone: "Australia/Sydney",
+      photo: { src: "/images/photos/regions/au-sydney.jpg", alt: "The Sydney Opera House on the harbour", position: "40% 50%" },
+    },
+  },
+  in: {
+    id: "in",
+    code: "IN",
+    label: "India",
+    flag: "in",
+    base: "/in",
+    lang: "en-IN",
+    spelling: "au",
+    location: "Gurugram, India",
+    contact: {
+      phones: [IN_PHONE],
+      email: EMAIL,
+      address: ["Platinum Tower, Unit 1024", "Gurugram, Haryana 122018, India"],
+      website: "aptacloud.com/in",
+    },
+    postal: { streetAddress: "Platinum Tower, Unit 1024", addressLocality: "Gurugram", addressRegion: "Haryana", postalCode: "122018", addressCountry: "IN" },
+    badges: [],
+    areaServed: ["India"],
+    card: {
+      place: "Gurugram and Pune",
+      text: "Engineering and delivery teams in two Indian offices.",
+      timeZone: "Asia/Kolkata",
+      photo: { src: "/images/photos/regions/in-delhi.jpg", alt: "India Gate in New Delhi against the sky", position: "50% 40%" },
+    },
+  },
+  // The live UAE site lists no UAE office or number: it shows the Indian number and the US HQ.
+  uae: {
+    id: "uae",
+    code: "UAE",
+    label: "United Arab Emirates",
+    flag: "ae",
+    base: "/uae",
+    lang: "en-AE",
+    spelling: "au",
+    location: "United Arab Emirates",
+    contact: { phones: [IN_PHONE], email: EMAIL, address: HQ_ADDRESS, website: "aptacloud.com/uae" },
+    postal: HQ_POSTAL,
+    badges: [],
+    areaServed: ["United Arab Emirates"],
+    card: {
+      place: "Across the UAE",
+      text: "Microsoft cloud, data, and AI for businesses across the UAE.",
+      timeZone: "Asia/Dubai",
+      photo: { src: "/images/photos/regions/uae-dubai.jpg", alt: "The Dubai skyline with the Burj Khalifa", position: "50% 55%" },
+    },
+  },
+};
+
+/** Switcher order: the global site first. */
+export const REGION_ORDER: RegionId[] = ["us", "au", "in", "uae"];
+
+const id = (regionFile as { region: string }).region as RegionId;
+if (!REGIONS[id]) throw new Error(`region.json: unknown region "${id}" (use us, au, in, or uae)`);
+
+/** The region this build is for. */
+export const REGION = REGIONS[id];
+
+/** The production-preview origin all four sites share (GitHub Pages user site). */
+export const SITE_ORIGIN = "https://designerhimalay-stack.github.io";
+
+/** A region's home URL (absolute), for the switcher and hreflang. */
+export const regionHome = (r: RegionConfig) => `${SITE_ORIGIN}${r.base}/`;

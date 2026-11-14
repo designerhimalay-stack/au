@@ -8,14 +8,28 @@ The marketing site for **AptaCloud**, a Microsoft-first cloud, data, and AI cons
 
 - **Stack:** Astro 7 (static output) + React 19 islands, Tailwind v4 + CSS Modules, TypeScript.
 - **Pages:** 53 built pages. That is the home page, 50 registry pages (service, industry, and company), the privacy page, and a 404.
-- **Live preview:** https://designerhimalay-stack.github.io/aptacloud/ (GitHub Pages, `gh-pages` branch).
-- **Repo:** https://github.com/designerhimalay-stack/aptacloud (`main` holds the source).
+- **Live preview:** https://designerhimalay-stack.github.io/au/ (GitHub Pages, `gh-pages` branch).
+- **Repo:** https://github.com/designerhimalay-stack/au (`main` holds the source). Renamed from `aptacloud` on 2026-11-14.
+
+### Regional sites (one codebase, four repos)
+The same code builds four sites; `region.json` in each repo picks which one. Everything regional (base path, contacts, locale, hreflang, footer badges, the Global presence cards) lives in `src/brand/regions.ts`.
+
+| Region | URL | Repo | `region.json` |
+|---|---|---|---|
+| US (global) | `/` | `designerhimalay-stack.github.io` | `us` |
+| Australia | `/au/` | `au` (this repo, the upstream) | `au` |
+| India | `/in/` | `in` | `in` |
+| UAE | `/uae/` | `uae` | `uae` |
+
+- Copy is written once in Australian English. The US build converts it to US spelling at build time (`tools/region/spelling.mjs`); slugs, ids, and paths are left alone.
+- Make shared changes here (AU), then in each regional repo run `git pull upstream main`. Never edit `region.json` in this repo except to test another region locally (set it back to `au` before committing).
+- US-only home section: `components/site/GlobalPresence.tsx` (region cards with country photos in `public/images/photos/regions/`, Pexels licence).
 
 ## 2. Commands
 
 ```bash
 npm install
-npm run dev -- --port 4321    # http://localhost:4321/aptacloud/
+npm run dev -- --port 4321    # http://localhost:4321/au/ (the base follows region.json)
 npx tsc --noEmit              # type-check (must be clean)
 npm run build                 # static build into dist/, then tools/images/optimize.mjs (must succeed)
 ```
@@ -26,7 +40,7 @@ npm run build                 # static build into dist/, then tools/images/optim
 3. Create a temporary worktree: `git worktree add -B gh-pages <tmp> origin/gh-pages`.
 4. Delete everything in `<tmp>` except `.git`, copy `dist/*` in, and keep `.nojekyll`.
 5. Commit with the message `Deploy <main-sha>: <summary>` and push.
-6. Check the Pages build: `gh api repos/designerhimalay-stack/aptacloud/pages/builds/latest`.
+6. Check the Pages build: `gh api repos/designerhimalay-stack/<repo>/pages/builds/latest`.
 7. Remove the worktree.
 
 **Windows / PowerShell 5.1 pitfalls:**
@@ -142,7 +156,7 @@ node tools/audit/designaudit.mjs 1440 out.json <slug>... && node tools/audit/das
 node tools/audit/ctaaudit.mjs <slug>...           # duplicate buttons per section
 node tools/audit/shoot.mjs /path/ name 1440 full  # screenshot (modes: full, fold, el:#id)
 node tools/audit/seoaudit.mjs dist                # after build: titles, descriptions, H1, canonical, OG, JSON-LD, alt, em dashes
-node tools/audit/linkcheck.mjs dist /aptacloud/   # every internal link and #anchor resolves
+node tools/audit/linkcheck.mjs dist   # every internal link and #anchor resolves
 ```
 
 **Don't edit `src/` while a crawl is running.** The dev server reloads and the crawl fails.

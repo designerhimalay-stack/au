@@ -4,6 +4,8 @@
 //  page, component, favicon and meta tag follows.
 // ─────────────────────────────────────────────────────────────────────────
 
+import { REGION } from "./regions";
+
 export const BRAND = {
   /** Company name — used in copy, the logo wordmark, meta tags and the footer. */
   name: "AptaCloud",
@@ -12,7 +14,7 @@ export const BRAND = {
   /** One-line value proposition (Brand Guidelines v2.0, 3.2), Australian spelling. */
   valueProp:
     "AptaCloud modernises the systems mid-sized insurance, oil & gas, and construction firms run on, and puts AI to work on top of them. We prove it on your data first.",
-  location: "Richardson, Texas",
+  location: REGION.location,
 
   colors: {
     /** The signature AptaCloud signal colour (buttons, highlights, icons). */
@@ -39,16 +41,8 @@ export const BRAND = {
     "1...1",
   ],
 
-  /** US contact details as per AptaCloud headquarters. */
-  contact: {
-    phones: [
-      { number: "+1 (972) 928-2341", flag: "us", country: "United States" },
-      { number: "+1 (972) 779-6347", flag: "us", country: "United States" },
-    ],
-    email: "contact@aptacloud.com",
-    address: ["801 E Campbell Rd, Ste 365", "Richardson, TX 75081, USA"],
-    website: "aptacloud.com",
-  },
+  /** Contact details for this build's region (src/brand/regions.ts). */
+  contact: REGION.contact,
 
   /** Social profiles */
   social: [
@@ -60,7 +54,7 @@ export const BRAND = {
   ],
 
   /** Memberships shown in the footer */
-  badges: [{ src: "/images/badges/allen-chamber.png", alt: "Proud member: Allen Chamber of Commerce 2026" }],
+  badges: REGION.badges,
 
   year: 2026,
 } as const;

@@ -1,3 +1,4 @@
+import { BASE as REGION_BASE } from "../region/base.mjs";
 // Automated visual-bug sweep: node audit.mjs <width> <slug>...
 // Reports per page: horizontal overflow, broken images, elements spilling out of
 // their section, sections with big empty space, tiny text, overlapping
@@ -12,7 +13,7 @@ for (const slug of slugs) {
   const errs = [];
   p.on("pageerror", (e) => errs.push(String(e).slice(0, 120)));
   p.on("console", (m) => m.type() === "error" && errs.push(m.text().slice(0, 120)));
-  await p.goto(`http://localhost:4321/aptacloud/${slug}/`, { waitUntil: "networkidle" });
+  await p.goto(`http://localhost:4321${REGION_BASE}${slug}/`, { waitUntil: "networkidle" });
   const h = await p.evaluate(() => document.body.scrollHeight);
   for (let y = 0; y < h; y += 600) { await p.evaluate((y) => scrollTo(0, y), y); await p.waitForTimeout(60); }
   await p.waitForTimeout(500);

@@ -102,3 +102,9 @@ marks belong to their owners and are shown monochrome to identify tools only.
 - Country flags (`public/images/flags/`): flag-icons, MIT License.
 - Social icons (`src/brand/social.ts`): Simple Icons, CC0; the marks belong to their owners.
 - Membership badge (`public/images/badges/`): supplied by the client.
+
+## Regional photos (`public/images/photos/regions/`, Pexels licence, free to use)
+- us-dallas.jpg: Dallas skyline, Pexels 2051002
+- au-sydney.jpg: Sydney Opera House, Pexels 26840173
+- in-delhi.jpg: India Gate, New Delhi, Pexels 31366998
+- uae-dubai.jpg: Dubai skyline, Pexels 33687795

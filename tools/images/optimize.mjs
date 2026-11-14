@@ -1,3 +1,4 @@
+import { BASE as REGION_BASE } from "../region/base.mjs";
 // Runs after `astro build`. For every raster <img> in the built HTML it adds WebP
 // variants (srcset), intrinsic width and height (no layout shift), and a dominant
 // colour behind the photo while it loads. SVGs get width and height from their viewBox.
@@ -8,7 +9,7 @@ import { createHash } from "node:crypto";
 import sharp from "sharp";
 
 const DIST = "dist";
-const BASE = "/aptacloud/";
+const BASE = REGION_BASE;
 const CACHE = "node_modules/.cache/aptacloud-images";
 const WIDTHS = [480, 800, 1200, 1600, 2400];
 mkdirSync(CACHE, { recursive: true });

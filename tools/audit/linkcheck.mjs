@@ -1,9 +1,10 @@
+import { BASE as REGION_BASE } from "../region/base.mjs";
 // Internal link + anchor check over the built site: node linkcheck.mjs <distDir> <base>
 // Every href under <base> must resolve to a built page (dir/index.html or a file),
 // and every #fragment must match an id on the target page (or the same page).
 import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
-const [dist, base = "/aptacloud/"] = process.argv.slice(2);
+const [dist, base = REGION_BASE] = process.argv.slice(2);
 const pages = [];
 const walk = (d) => {
   for (const f of readdirSync(d)) {

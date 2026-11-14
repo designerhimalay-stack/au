@@ -8,6 +8,7 @@
 // Pages not rebuilt yet still use the fixed template (extras.ts).
 import Site from "../layouts/Site.astro";
 import { BRAND } from "../brand/brand";
+import { REGION } from "../brand/regions";
 import { SERVICE_PAGES, getService } from "../data/services";
 import type { Block } from "../data/services/types";
 import { TECH } from "../data/tech";
@@ -149,7 +150,7 @@ const jsonLd = [
         serviceType: page.name,
         description: page.seo.description,
         url: pageUrl,
-        areaServed: ["United States", "Australia", "India"],
+        areaServed: REGION.areaServed,
         provider: {
           "@type": "Organization",
           name: BRAND.name,

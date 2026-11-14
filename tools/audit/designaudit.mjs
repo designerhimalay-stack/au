@@ -1,3 +1,4 @@
+import { BASE as REGION_BASE } from "../region/base.mjs";
 // Design-consistency audit: node designaudit.mjs <width> <out.json> <slug>...
 // Collects computed styles across pages so inconsistencies show as data:
 // heading scale by level, section padding, container left edges, card radius and
@@ -7,7 +8,7 @@ import { chromium } from "playwright-core";
 import { writeFileSync } from "node:fs";
 const [w, out, ...slugs] = process.argv.slice(2);
 const width = Number(w);
-const base = "http://localhost:4321/aptacloud/";
+const base = `http://localhost:4321${REGION_BASE}`;
 const b = await chromium.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe" });
 const ctx = await b.newContext({ viewport: { width, height: 900 }, reducedMotion: "reduce" });
 const p = await ctx.newPage();

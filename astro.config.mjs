@@ -2,6 +2,8 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
+import { readFileSync } from "node:fs";
+import { usSpelling } from "./tools/region/spelling.mjs";
 
 // Touch screens keep :hover after a tap, so every hover rule only applies on
 // devices that can really hover.
@@ -22,13 +24,21 @@ const hoverOnly = {
   },
 };
 
+// One codebase, four sites: region.json picks the region (us at the root,
+// au / in / uae under their folders). See src/brand/regions.ts.
+/** @type {{ region: "us" | "au" | "in" | "uae" }} */
+const { region } = JSON.parse(readFileSync(new URL("./region.json", import.meta.url), "utf8"));
+/** @type {Record<string, string>} */
+const BASES = { us: "/", au: "/au", in: "/in", uae: "/uae" };
+if (!(region in BASES)) throw new Error(`region.json: unknown region "${region}"`);
+
 export default defineConfig({
   site: "https://designerhimalay-stack.github.io",
-  base: "/aptacloud",
+  base: BASES[region],
   output: "static",
   integrations: [react()],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), ...(region === "us" ? [usSpelling()] : [])],
     css: { postcss: { plugins: [hoverOnly] } },
   },
 });

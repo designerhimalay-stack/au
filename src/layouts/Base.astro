@@ -5,6 +5,7 @@
 // astro.config.mjs, so moving to the production domain only changes the config.
 import "../styles/globals.css";
 import { BRAND, asset, brandCssVars } from "../brand/brand";
+import { REGION, REGIONS, REGION_ORDER, SITE_ORIGIN } from "../brand/regions";
 
 interface Props {
   title: string;
@@ -34,14 +35,7 @@ const organization = {
   logo: abs("/images/aptacloud-logo-new.webp"),
   email: BRAND.contact.email,
   telephone: BRAND.contact.phones[0].number,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "801 E Campbell Rd, Ste 365",
-    addressLocality: "Richardson",
-    addressRegion: "TX",
-    postalCode: "75081",
-    addressCountry: "US",
-  },
+  address: { "@type": "PostalAddress", ...REGION.postal },
   sameAs: BRAND.social.map((s) => s.href),
 };
 const website = {
@@ -51,18 +45,28 @@ const website = {
   name: BRAND.name,
   url: home,
   publisher: { "@id": `${home}#organization` },
-  inLanguage: "en-AU",
+  inLanguage: REGION.lang,
 };
+
+// The same page on the other regional sites (every region builds every page).
+const pagePath = Astro.url.pathname.slice(import.meta.env.BASE_URL.replace(/\/$/, "").length) || "/";
+const alternates = noindex
+  ? []
+  : [
+      ...REGION_ORDER.map((id) => ({ lang: REGIONS[id].lang, href: `${SITE_ORIGIN}${REGIONS[id].base}${pagePath}` })),
+      { lang: "x-default", href: `${SITE_ORIGIN}${REGIONS.us.base}${pagePath}` },
+    ];
 ---
 
 <!doctype html>
-<html lang="en-AU">
+<html lang={REGION.lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.href} />)}
     {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="icon" href={asset("/favicon.svg")} type="image/svg+xml" />
     <link rel="apple-touch-icon" href={asset("/apple-touch-icon.png")} />
@@ -71,7 +75,7 @@ const website = {
     <meta name="theme-color" content="#0a0a0a" />
     <style set:html={brandCssVars()} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_AU" />
+    <meta property="og:locale" content={REGION.lang.replace("-", "_")} />
     <meta property="og:site_name" content={BRAND.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

@@ -12,21 +12,19 @@ import { useEffect, useId, useLayoutEffect, useRef, useState, type MouseEvent, t
 import { flushSync } from "react-dom";
 import { BRAND, PRIMARY_CTA, asset } from "@/brand/brand";
 import { Logo } from "@/brand/Logo";
+import { REGION, REGIONS as ALL_REGIONS, REGION_ORDER, regionHome } from "@/brand/regions";
 import { RollingText } from "@/components/ui/RollingText";
 import { cn } from "@/lib/utils";
 import styles from "./Nav.module.css";
 import { MENUS, type NavMenu } from "./nav/menus";
 import { MegaPanel } from "./nav/MegaPanel";
 
-// Region switcher (set default to Australia).
-const REGIONS = [
-  { code: "AU", label: "Australia", flag: "au" },
-  { code: "US", label: "United States", flag: "us" },
-  { code: "IN", label: "India", flag: "in" },
-  { code: "UAE", label: "United Arab Emirates", flag: "ae" },
-] as const;
-type Region = (typeof REGIONS)[number]["code"];
-const REGION_KEY = "site-region";
+// Region switcher: each region is its own site (src/brand/regions.ts); picking
+// one goes to that site's home page.
+const REGIONS = REGION_ORDER.map((id) => {
+  const r = ALL_REGIONS[id];
+  return { code: r.code, label: r.label, flag: r.flag, href: regionHome(r) };
+});
 
 // The nav's one CTA reads "Let's talk" on every page and opens the page's contact
 // form (CRO: the page-specific primary action lives in the hero and the form).
@@ -138,7 +136,6 @@ export function Nav({ cta = DEFAULT_CTA }: { cta?: NavCta }) {
   const sheetRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<HTMLUListElement>(null);
   const regionRef = useRef<HTMLDivElement>(null);
-  const [region, setRegion] = useState<Region>("AU");
   const closeTimer = useRef<number | undefined>(undefined);
   const hoveredAt = useRef(0);
   const hoverId = useRef<string | null>(null);
@@ -239,24 +236,7 @@ export function Nav({ cta = DEFAULT_CTA }: { cta?: NavCta }) {
 
   useEffect(() => () => window.clearTimeout(closeTimer.current), []);
 
-  // Restore the remembered region after hydration (server always renders the default).
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(REGION_KEY);
-      if (REGIONS.some((r) => r.code === saved)) setRegion(saved as Region);
-    } catch {
-      /* storage blocked: keep the default */
-    }
-  }, []);
-
-  const chooseRegion = (code: Region) => {
-    setRegion(code);
-    try {
-      window.localStorage.setItem(REGION_KEY, code);
-    } catch {
-      /* storage blocked: the choice lasts for this visit */
-    }
-  };
+  const region = REGION.code;
   const current = REGIONS.find((r) => r.code === region) ?? REGIONS[0];
   const regionLabel = current.label;
 
@@ -482,17 +462,16 @@ export function Nav({ cta = DEFAULT_CTA }: { cta?: NavCta }) {
               </p>
               <div className={styles.chips} role="group" aria-label="Region">
                 {REGIONS.map((r) => (
-                  <button
+                  <a
                     key={r.code}
-                    type="button"
+                    href={r.href}
                     className={cn(styles.chip, r.code === region && styles.chipOn)}
-                    aria-pressed={r.code === region}
+                    aria-current={r.code === region ? "true" : undefined}
                     aria-label={r.label}
-                    onClick={() => chooseRegion(r.code)}
                   >
                     <Flag code={r.flag} />
                     {r.code}
-                  </button>
+                  </a>
                 ))}
               </div>
             </div>
@@ -537,15 +516,11 @@ export function Nav({ cta = DEFAULT_CTA }: { cta?: NavCta }) {
               const on = r.code === region;
               return (
                 <li key={r.code}>
-                  <button
-                    type="button"
+                  <a
+                    href={r.href}
                     className={cn(styles.dropLink, styles.regionOpt, on && styles.regionOn)}
-                    aria-pressed={on}
-                    onClick={() => {
-                      chooseRegion(r.code);
-                      setDrop(null);
-                      document.getElementById(`${uid}-region-trigger`)?.focus({ preventScroll: true });
-                    }}
+                    aria-current={on ? "true" : undefined}
+                    onClick={() => setDrop(null)}
                   >
                     <Flag code={r.flag} className={styles.flagLg} />
                     <span className={cn(styles.dropText, styles.regionText)}>
@@ -553,7 +528,7 @@ export function Nav({ cta = DEFAULT_CTA }: { cta?: NavCta }) {
                       <span className={styles.dropDesc}>{r.code}</span>
                     </span>
                     <span className={styles.regionCheck}>{on && <Check />}</span>
-                  </button>
+                  </a>
                 </li>
               );
             })}

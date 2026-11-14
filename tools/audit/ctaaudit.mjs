@@ -1,9 +1,10 @@
+import { BASE as REGION_BASE } from "../region/base.mjs";
 // CTA audit: node ctaaudit.mjs <slug>... (use "/" for home)
 // Per page: every button-like control (buttons and links styled as buttons, plus
 // any link to #contact), grouped by section; flags the same label twice in one
 // section and counts how many times the page's primary action appears.
 import { chromium } from "playwright-core";
-const base = "http://localhost:4321/aptacloud/";
+const base = `http://localhost:4321${REGION_BASE}`;
 const slugs = process.argv.slice(2);
 const b = await chromium.launch({ executablePath: process.env.CHROME_PATH || "C:/Program Files/Google/Chrome/Application/chrome.exe" });
 const p = await b.newPage({ viewport: { width: 1440, height: 900 } });
