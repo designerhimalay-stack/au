@@ -1,0 +1,1 @@
+import{i as e}from"./brand.g3ZY_i-V.js";var t=t=>e(`/${t}/`);export{t};
