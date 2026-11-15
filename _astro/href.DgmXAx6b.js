@@ -1,0 +1,1 @@
+import{i as e}from"./brand.DRlU0BZb.js";var t=t=>e(`/${t}/`);export{t};
