@@ -1,0 +1,1 @@
+import{i as e}from"./brand.Z8N3vRom.js";var t=t=>e(`/${t}/`);export{t};
