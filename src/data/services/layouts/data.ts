@@ -24,7 +24,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
           "Whether you want to improve operations, make better decisions, or drive digital transformation, our data engineering consultants guide you at every step.",
         ],
         cta: true,
-        photo: { src: `${P}/data-team.jpg`, alt: "AptaCloud data engineers reviewing a pipeline design with a client on a laptop", position: "50% 40%" },
+        photo: { src: `/images/photos/people/r/data-team-2.jpg`, alt: "Data engineers reviewing a pipeline design with a client", position: "50% 40%" },
       },
       {
         kind: "cards",
@@ -191,7 +191,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         ],
         cta: true,
         reverse: true,
-        photo: { src: `${P}/consult-present.jpg`, alt: "An AptaCloud data lead presenting warehouse reporting to a client team", position: "55% 50%" },
+        photo: { src: `/images/photos/people/r/consult-present-2.jpg`, alt: "A data lead presenting reporting to a client team", position: "55% 50%" },
       },
       {
         kind: "cards",

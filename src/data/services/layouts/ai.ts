@@ -409,7 +409,7 @@ export const AI_LAYOUTS: Record<string, ServiceLayout> = {
               "Routing customers to the right resources for a better experience.",
             ],
             note: "Automating support can cut response times sharply while keeping the personal touch customers expect.",
-            photo: { src: `${P}/support-desk.jpg`, alt: "A customer service specialist with a headset, supported by an AI assistant", position: "50% 35%" },
+            photo: { src: `/images/photos/people/r/support-desk-2.jpg`, alt: "A specialist working with an AI assistant at his laptop", position: "50% 35%" },
           },
           {
             title: "Marketing and sales enablement",
@@ -431,7 +431,7 @@ export const AI_LAYOUTS: Record<string, ServiceLayout> = {
               "Manual, time-intensive processes turned into automated workflows.",
             ],
             note: "Your business saves time and money, and your teams can focus on strategic work.",
-            photo: { src: `${P}/ops-plans.jpg`, alt: "Two operations managers reviewing plans and documents at a table", position: "50% 45%" },
+            photo: { src: `/images/photos/people/r/ops-plans-2.jpg`, alt: "Operations managers reviewing plans and documents at a table", position: "50% 45%" },
           },
           {
             title: "Knowledge management",

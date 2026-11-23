@@ -99,8 +99,8 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 
 | # | Item | Status |
 |---|---|---|
-| G1 | Cut repeated images across pages; distinct images wherever possible | measured | content photos repeated across pages, leaving out sections that repeat by design (related-page cards, the industries rotation, events, articles): AU 36 photos, US 35 (on 2 or 3 pages each), none twice on one page. About 47 replacement photos per region; a dedicated sourcing pass |
-| G2 | US images more US-centric (American settings and people) | partly | US home hero (Dallas), agentic AI section, Data Visualization hero, and data and Azure photos are now US settings; the G1 pass continues it |
+| G1 | Cut repeated images across pages; distinct images wherever possible | done | 48 repeated uses replaced per region: every content photo now appears on one page only (AU 0, US 0 repeats; tools/audit/photorepeats.mjs). Related-page cards and the industries rotation repeat by design. New AU photos: Pexels fauxels; US: Jopwell and #WOCinTech (American offices); no photo shared across regions (pixel check) |
+| G2 | US images more US-centric (American settings and people) | done | the 48 new US photos are American offices and people (Jopwell, #WOCinTech NYC), on top of the Dallas hero, agentic AI, data, and Azure swaps |
 | G3 | Industry pages with blank or missing images | checked | every industry page on the US, AU, IN, and UAE staging sites loads all its images (desktop, retina, phone). One real blank found and fixed site-wide: single-colour tool logos in card chips painted white on a white plate (TechMark.module.css). Ask the client which page and section they saw if it persists |
 | G4 | Official Anthropic logo, identical everywhere | done | one file, /images/partners/anthropic.svg, in Partners, US credentials, and About |
 | G5 | Remove the large footer logo on all regions | done | giant wordmark removed from the footer |
@@ -165,8 +165,7 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 
 ## Next session
 
-1. G1 and G2: replace the repeated photos (AU 36, US 35; list from `node tools/audit/photorepeats.mjs dist <base> out.json` on each build, which leaves out the related, industries, events, and articles sections), one new photo per extra use, US photos in US settings, no shoot shared across regions.
-2. Run the strict, launch-checklist, and mobile audits on au, us, and in builds; screenshots at 390 / 768 / 1440 of the new pages (blog articles, events).
+1. Run the strict, launch-checklist, and mobile audits on au, us, and in builds; screenshots at 390 / 768 / 1440 of the new pages (blog articles, events).
 
 Checker: `node tools/audit/clientfixes-1120.mjs` after `npm run build` for a region. 2026-11-23: au 31 pass, us 28, in 28; 0 fail; A1 and A2 waiting on the client.
 ## Waiting on the client

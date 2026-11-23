@@ -165,7 +165,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
         list: "cards",
         cta: true,
         note: "Learn how AptaCloud can modernise your legacy systems securely, starting with a migration analysis.",
-        photo: { src: `${P}/workshop-room.jpg`, alt: "An AptaCloud lead running a migration planning workshop with a client", position: "50% 45%" },
+        photo: { src: `/images/photos/people/r/workshop-room-2.jpg`, alt: "A lead running a migration planning workshop with a client", position: "50% 45%" },
         items: [
           { title: "Proven legacy migration experience", text: "Years of combined experience moving complex legacy workloads to the cloud with minimal downtime, across industries.", icon: "clock" },
           { title: "Every migration approach", text: "Lift-and-shift with no code changes, re-platforming, and re-architecting monoliths into cloud-native microservices.", icon: "layers" },
@@ -273,7 +273,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
         kind: "banner",
         heading: "Book an app modernisation consultation.",
         text: "Start with the first application to move, and we will plan the rest with you.",
-        photo: { src: `${P}/group-laptop.jpg`, alt: "A client team reviewing a modernised application with AptaCloud", position: "50% 45%" },
+        photo: { src: `/images/photos/people/r/group-laptop-2.jpg`, alt: "A client team reviewing their application on a laptop", position: "50% 45%" },
       },
       {
         kind: "cards",
@@ -397,7 +397,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
         ],
         cta: true,
         reverse: true,
-        photo: { src: `${P}/dev-desk.jpg`, alt: "An engineer re-engineering an application at his desk", position: "45% 50%" },
+        photo: { src: `/images/photos/people/r/dev-desk-2.jpg`, alt: "An engineer re-engineering an application at her desk", position: "45% 50%" },
       },
       {
         kind: "cards",
@@ -432,7 +432,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
         lead: "Evolving legacy applications with AptaCloud brings several advantages.",
         reverse: true,
         list: "cards",
-        photo: { src: `${P}/macbook-four.jpg`, alt: "Engineers rebuilding application services across two monitors", position: "50% 45%" },
+        photo: { src: `/images/photos/people/r/macbook-four-2.jpg`, alt: "Engineers rebuilding application services at their monitors", position: "50% 45%" },
         items: [
           { title: "More agility", text: "Redesigned architecture, containers, and microservices make apps easier to maintain and update.", icon: "cog" },
           { title: "Better reliability", text: "Cloud infrastructure improves stability, redundancy, and disaster recovery.", icon: "cloud" },
@@ -491,7 +491,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
         kind: "banner",
         heading: "Signs your application portfolio is ready for re-engineering.",
         text: "A readiness assessment shows the technical gaps, modernisation priorities, and business return, so you know where to begin.",
-        photo: { src: `${P}/sunlit-meeting.jpg`, alt: "An AptaCloud architect running a readiness workshop with a client", position: "50% 45%" },
+        photo: { src: `/images/photos/people/r/sunlit-meeting-2.jpg`, alt: "An architect running a readiness workshop with a client", position: "50% 45%" },
       },
       {
         kind: "cases",
@@ -525,7 +525,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
         reverse: true,
         list: "cards",
         note: "Bring your apps into the modern age, with the agility and performance to keep innovating.",
-        photo: { src: `${P}/ops-plans.jpg`, alt: "Two managers reviewing application plans and documents at a table", position: "50% 45%" },
+        photo: { src: `/images/photos/people/r/ops-plans-3.jpg`, alt: "Managers reviewing application plans and documents", position: "50% 45%" },
         items: [
           { title: "Scale quickly to meet surges in traffic and demand", icon: "chart" },
           { title: "Integrate with modern tools for better insight", icon: "link" },
