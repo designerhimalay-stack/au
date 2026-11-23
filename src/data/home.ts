@@ -381,8 +381,8 @@ export const US_AGENT_BUILD: Block = {
   body: [
     "We build agents with Azure AI Foundry and Microsoft Copilot Studio, inside your Microsoft environment and security controls. Each agent starts as a proof of concept on your own data.",
   ],
-  // Pexels 8297058 (US home only).
-  photo: { src: "/images/photos/regions/us/agentic-ai.jpg", alt: "An operations lead reviewing a work queue on her laptop", position: "58% 50%" },
+  // Unsplash, Vitaly Gariev (chosen by the user, 2026-11-23; US home only).
+  photo: { src: "/images/photos/regions/us/agentic-ai.jpg", alt: "A team reviewing an AI agent's work together on a desktop monitor", position: "62% 50%" },
   list: "divided",
   items: [
     { title: "Grounded in your data", text: "Agents answer from your policies, documents, and systems, and show the source for each answer.", icon: "db" },

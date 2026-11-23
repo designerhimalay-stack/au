@@ -77,6 +77,8 @@ export const REGIONS: Record<RegionId, RegionConfig> = {
       // cropped so the tower stands right of the headline; phones centre on it.
       "/images/photos/hero-developer.jpg": { src: "/images/photos/regions/us/hero-dallas.jpg", alt: "", position: "88% 30%" },
       // SharePoint page: another real SharePoint intranet page (Microsoft PnP Starter Kit, MIT), cropped to its top.
+      // Data Visualization hero: dashboards across several monitors (Unsplash, SanDisk; chosen by the user, 2026-11-23).
+      "/images/photos/services/dataviz-dashboard.jpg": { src: "/images/photos/regions/us/pages/dataviz-monitors.jpg", alt: "An analyst working across several monitors of charts and dashboards", position: "60% 45%" },
       "/images/photos/services/sharepoint-intranet.png": { src: "/images/photos/regions/us/pages/sharepoint-portal.png", alt: "A SharePoint portal home page with quick links, company news, and events", position: "50% 0%" },
       "/images/photos/hero-developer-2.jpg": { src: "/images/photos/regions/us/about.jpg", alt: "An AptaCloud specialist working through a plan on her laptop", position: "50% 40%" },
       "/images/photos/d365-implementation.jpg": { src: "/images/photos/regions/us/team.jpg", alt: "A project team reviewing a plan at a flipchart", position: "55% 50%" },

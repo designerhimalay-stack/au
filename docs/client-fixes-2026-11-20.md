@@ -21,7 +21,7 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 |---|---|---|---|
 | A1 | Contact form: send to CRM / booking tool, thank-you message, lead event | input | Plumbing built against a configurable endpoint; needs the CRM / booking tool endpoint |
 | A2 | GA4 through Google Tag Manager; track form submits, phone and email clicks | input | Plumbing built; needs the GTM container ID |
-| A3 | Privacy policy: publish approved text, remove noindex | input | Needs the approved policy text |
+| A3 | Privacy policy: publish approved text, remove noindex | done | the privacy policy from aptacloud.com is published and indexable (earlier commit); confirm it is the approved text |
 | A4 | Production base URLs in astro.config.mjs | done | `site` = https://aptacloud.com; SITE_ORIGIN matches; switcher links root-relative |
 | A5 | CLAUDE.md positioning rule | done | |
 | A6 | "Engineers under one roof" → "Engineers" | done | |
@@ -99,8 +99,8 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 
 | # | Item | Status |
 |---|---|---|
-| G1 | Cut repeated images across pages; distinct images wherever possible | todo |
-| G2 | US images more US-centric (American settings and people) | todo |
+| G1 | Cut repeated images across pages; distinct images wherever possible | measured | content photos repeated across pages, leaving out sections that repeat by design (related-page cards, the industries rotation, events, articles): AU 36 photos, US 35 (on 2 or 3 pages each), none twice on one page. About 47 replacement photos per region; a dedicated sourcing pass |
+| G2 | US images more US-centric (American settings and people) | partly | US home hero (Dallas), agentic AI section, Data Visualization hero, and data and Azure photos are now US settings; the G1 pass continues it |
 | G3 | Industry pages with blank or missing images | checked | every industry page on the US, AU, IN, and UAE staging sites loads all its images (desktop, retina, phone). One real blank found and fixed site-wide: single-colour tool logos in card chips painted white on a white plate (TechMark.module.css). Ask the client which page and section they saw if it persists |
 | G4 | Official Anthropic logo, identical everywhere | done | one file, /images/partners/anthropic.svg, in Partners, US credentials, and About |
 | G5 | Remove the large footer logo on all regions | done | giant wordmark removed from the footer |
@@ -114,7 +114,7 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 | US-1 | Hero background: Dallas downtown | done | Reunion Tower and downtown (Pexels 10482416), cropped so the tower stands right of the headline. A wider skyline from the Trinity River (Wikimedia, CC0) is the fallback if the client wants more of downtown |
 | US-2 | Hero tiles: correct Dynamics 365 icon and Azure logo | done | official Azure icon; Dynamics 365 icon-only file made from the official lockup (the lockup was unreadable at 24px) |
 | US-3 | Technology partners: official Anthropic logo | done |
-| US-4 | One or two new sections on agentic AI and AI agents (we propose content) | done | two sections: "AI agents that move the work forward" (4 agents) and "Agents your team can trust in production" (how we build them) |
+| US-4 | One or two new sections on agentic AI and AI agents (we propose content) | done | "AI agents that move the work forward" (4 agents) and "Agents your team can trust in production" (photo supplied by the user) |
 | US-5 | New focus-industries section (Insurance, Oil & Gas, Engineering & Construction) | done | "Three industries we know from the inside", the existing industry cards and pages |
 | US-6 | Remove Global presence | done |
 | US-7 | Rewrite "Tell us what your team has started…" with AI consulting positioning | done | "Bring us a business problem. We will show where AI solves it." |
@@ -138,7 +138,7 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 | S5 | Data Engineering: remove Power BI from the toolkit | done | Power BI (and Looker Studio) off the Data Engineering toolkit |
 | S6 | Data Engineering: add ETL and EDI | done | new "ETL pipelines and EDI exchanges" section, a services card renamed "ETL and data pipelines", and an FAQ |
 | S7 | Data Warehouse: replace networking image | done | hero now storage servers: AU Pexels 17489160, US Pexels 4508751 |
-| S8 | Data Visualization: dashboards and graphs imagery | done | hero now an analytics dashboard: AU Pexels 12969403, US Pexels 577195 |
+| S8 | Data Visualization: dashboards and graphs imagery | done | AU Pexels 12969403; US now the multi-monitor photo supplied by the user |
 | S9 | Azure pages: servers and cloud infrastructure imagery | done | Azure Implementation hero (AU 37730212, US 5092815) and Azure Managed Services (AU 325229, US 2881224) now show servers and data centres; Migration, Security, and Hosting already had one |
 | S10 | SharePoint: real SharePoint visuals | done | real SharePoint intranet screenshots from Microsoft's PnP Starter Kit (MIT licence), a different page per region. Ask the client for screenshots of their own SharePoint sites and document libraries (client names blurred) to replace them |
 | S11 | Microsoft Database: SQL Server, Azure SQL and related product logos | done | new "The Microsoft database products we work with": SQL Server, Azure SQL, Cosmos DB, PostgreSQL, Fabric, Database Migration Service |
@@ -158,20 +158,17 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 |---|---|---|
 | C1 | Leadership: add Ketki | done | Ketki Naidu, Human Resources (photo in company/) |
 | C2 | Locations and About: add Colombia (not the US home) | done | About story, leadership lead, locations, and offices; US home unchanged |
-| B1 | Blog listing: fresh layout | next | see Next session |
-| B2 | Blog detail: matching design | next | see Next session |
-| B3 | Events: each event gets its own link and an image | next | see Next session |
-| AU-1 | AU hero: Sydney landmark | done | Sydney Opera House (Pexels 2434267) |
+| B1 | Blog listing: fresh layout | done | lead story beside "Also new", then topics and search beside article rows with excerpts and reading time; topics wrap as chips on phones |
+| B2 | Blog detail: matching design | done | 77 articles imported from the live blogs (tools/blog/import.mjs) into /blog/<slug>/: header with cover, article with "On this page", related articles, contact form, BlogPosting and FAQ schema, in the sitemap. Article text as published; AU build applies its trade terms |
+| B3 | Events: each event gets its own link and an image | done | every event has its own page (/events/<slug>/) with its own image; the listing shows photo cards |
+| AU-1 | AU hero: Sydney landmark | done | Sydney Opera House photo supplied by the user |
 
 ## Next session
 
-1. B2: blog post pages on the new site (`/blog/<slug>/`). Import the 77 listed posts from the live WordPress REST API (`/wp-json/wp/v2/posts?slug=`, open, Gutenberg HTML): drop spacers and the WP CTA banner, merge split lists, self-host images, rewrite internal links. Article layout: header, featured image, body with an "On this page" sidebar, related articles, contact form; BlogPosting schema. `postUrl` then points inside the site.
-2. B1: new listing: lead story beside an "Also new" list, then topics and search in a sidebar beside article rows with excerpts and read time (the WordPress thumbnails carry baked-in text, so the layout leads with type, not a poster grid).
-3. B3: event pages (`/events/<slug>/`) and image cards. Images saved in `public/images/photos/company/events/`. Convergence AI Dallas has only a 317px image on the live site: use a quality conference photo and ask the client for a better one. AI in Oil & Gas has a live page (`/event/ai-in-oil-gas/`), so it gets a link too.
-4. G1 and G2: crawl each region's build for photos used on more than one page or from one shoot on one page (e.g. the Insurance hub shows the advisor-and-couple shoot three times), then replace with distinct US-centric photos on the US build.
-5. `tools/audit/clientfixes.mjs`: PASS/FAIL every row of this tracker per region; build au, us, in; launch-checklist audits; screenshots at 390 / 768 / 1440.
-6. Log new photos in `docs/agentcraft/PHOTO_CREDITS.md`: Pexels 10482416, 2434267, 8297058, 17489160, 4508751, 12969403, 577195, 37730212, 325229, 5092815, 2881224; PnP Starter Kit screenshots (MIT).
+1. G1 and G2: replace the repeated photos (AU 36, US 35; list from `node tools/audit/photorepeats.mjs dist <base> out.json` on each build, which leaves out the related, industries, events, and articles sections), one new photo per extra use, US photos in US settings, no shoot shared across regions.
+2. Run the strict, launch-checklist, and mobile audits on au, us, and in builds; screenshots at 390 / 768 / 1440 of the new pages (blog articles, events).
 
+Checker: `node tools/audit/clientfixes-1120.mjs` after `npm run build` for a region. 2026-11-23: au 31 pass, us 28, in 28; 0 fail; A1 and A2 waiting on the client.
 ## Waiting on the client
 
 - A1 CRM or booking-tool endpoint (`LEADS.endpoint`), A2 GTM container ID (`ANALYTICS.gtmId`), A3 approved privacy text.
