@@ -1,4 +1,8 @@
 [
+  { "from": "/images/photos/services/dwh-storage.jpg", "id": 4508751, "alt": "An aisle of storage and server racks in a data center" },
+  { "from": "/images/photos/azure/imp-servers.jpg", "id": 5092815, "alt": "A workstation beside a row of server racks in a data center" },
+  { "from": "/images/photos/azure/man-datacentre.jpg", "id": 2881224, "alt": "A network switch and cabling in a data center rack" },
+  { "from": "/images/photos/services/dataviz-dashboard.jpg", "id": 577195, "alt": "A laptop open on a desk showing charts and an analytics dashboard" },
   { "from": "/images/photos/company/about-hero.jpg", "id": 29267512, "alt": "A team gathered around a long table with laptops in a loft office" },
   { "from": "/images/photos/company/careers-hero.jpg", "id": 29267510, "alt": "Colleagues working on laptops at a shared desk in a busy office" },
   { "from": "/images/photos/company/blog-hero.jpg", "id": 1181545, "alt": "A professional working on a laptop by a large office window" },

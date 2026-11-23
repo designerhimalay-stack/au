@@ -16,6 +16,8 @@ const OFFICES: Extract<Block, { kind: "offices" }>["items"] = [
   { country: "India", flag: "in", city: "Gurugram", address: "Platinum Tower, Unit 1024, Gurugram, Haryana 122018", timeZone: "Asia/Kolkata" },
   { country: "India", flag: "in", city: "Pune", address: "Almonte IT Park, Sprint Coworks, 6th Floor, Unit 622, Kharadi, Pune, Maharashtra 411014", timeZone: "Asia/Kolkata" },
   { country: "Mexico", flag: "mx", city: "Mexico City", timeZone: "America/Mexico_City" },
+  // Client, 2026-11-20: Colombia on the About and Locations sections only (not the US home). City to confirm.
+  { country: "Colombia", flag: "co", city: "Delivery team", timeZone: "America/Bogota" },
 ];
 
 const NEXT_EVENT: Extract<Block, { kind: "events" }>["next"] = {
@@ -42,9 +44,9 @@ export const COMPANY_LAYOUTS: Record<string, ServiceLayout> = {
         icon: "team",
         heading: "Your team has already started. We take it to production.",
         body: [
-          "AptaCloud works with mid-sized businesses in insurance, oil and gas, and engineering and construction. We modernise the systems they run on, connect them, and put AI to work on top of them.",
+          "AptaCloud works with mid-sized businesses in insurance, oil and gas, and engineering and construction. We help their teams move work faster with AI, and we modernise and connect the systems that AI depends on.",
           "Most of our clients come to us with something already under way: an AI pilot, a modernisation plan, or a cloud migration. We prove the value on their data with a proof of concept, then deliver in clear phases with senior, Microsoft-certified AI and cloud specialists, on the systems they already run.",
-          "Our engineers work from the United States, India, and Mexico, so delivery and support carry on around the clock.",
+          "Our engineers work from the United States, India, Mexico, and Colombia, so delivery and support carry on around the clock.",
         ],
         photo: { src: `${C}/about-story.jpg`, alt: "Three colleagues discussing a project around a computer in the office", position: "55% 50%" },
       },
@@ -70,7 +72,7 @@ export const COMPANY_LAYOUTS: Record<string, ServiceLayout> = {
         tag: "Leadership",
         icon: "team",
         heading: "Meet our leadership team.",
-        lead: "Executive guidance and technical leadership across our United States, India, and Mexico engineering practices.",
+        lead: "Executive guidance and technical leadership across our United States, India, Mexico, and Colombia engineering practices.",
         items: [
           {
             name: "Hemant Madaan",
@@ -101,6 +103,15 @@ export const COMPANY_LAYOUTS: Record<string, ServiceLayout> = {
               position: "50% 18%",
             },
           },
+          {
+            name: "Ketki Naidu",
+            role: "Human Resources",
+            photo: {
+              src: `${C}/ketki-naidu.jpg`,
+              alt: "Ketki Naidu, Human Resources at AptaCloud",
+              position: "50% 22%",
+            },
+          },
         ],
       },
       {
@@ -114,7 +125,7 @@ export const COMPANY_LAYOUTS: Record<string, ServiceLayout> = {
         cols: 3,
         items: [
           { title: "Microsoft", text: "Azure, Dynamics 365, Power BI, and Microsoft Fabric are where our senior specialists spend most of their time.", logo: "/images/partners/microsoft.svg" },
-          { title: "Anthropic", text: "Claude models for AI that reads documents, reasons over your data, and works inside your workflows.", logo: "/images/partners/anthropic-wordmark.svg" },
+          { title: "Anthropic", text: "Claude models for AI that reads documents, reasons over your data, and works inside your workflows.", logo: "/images/partners/anthropic.svg" },
           { title: "Amazon Web Services", text: "Amazon Web Services for the workloads that already run there, or are better suited to it.", logo: "/images/partners/aws.svg" },
         ],
       },
@@ -145,7 +156,7 @@ export const COMPANY_LAYOUTS: Record<string, ServiceLayout> = {
         id: "locations",
         tag: "Global presence",
         icon: "target",
-        heading: "Teams in the United States, India, and Mexico.",
+        heading: "Teams in the United States, India, Mexico, and Colombia.",
         lead: "Delivery and support carry on across time zones, wherever you are.",
         items: OFFICES,
       },
@@ -196,7 +207,7 @@ export const COMPANY_LAYOUTS: Record<string, ServiceLayout> = {
         tag: "Where we work",
         icon: "target",
         heading: "Our offices.",
-        lead: "Teams in the United States, India, and Mexico.",
+        lead: "Teams in the United States, India, Mexico, and Colombia.",
         items: OFFICES,
       },
     ],

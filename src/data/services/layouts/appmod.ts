@@ -90,7 +90,28 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
           { title: "Cloud managed services after migration", icon: "shield" },
           { title: "Complex migrations involving mainframes", icon: "migrate" },
         ],
-        chips: { heading: "We migrate legacy applications written in:", items: ["COBOL", "Visual Basic", "PowerBuilder", ".NET Framework", "SQL and NoSQL databases"] },
+        // Client designer pointers, 2026-11-20: more older technologies, including Delphi and Java.
+        chips: {
+          heading: "We migrate legacy applications written in:",
+          items: ["COBOL", "RPG on IBM i (AS/400)", "Visual Basic 6", "Delphi", "PowerBuilder", "Java (J2EE, Struts, Swing)", "Classic ASP", ".NET Framework and Web Forms", "Microsoft Access", "Oracle Forms", "FoxPro", "Lotus Notes", "SQL and NoSQL databases"],
+        },
+      },
+      {
+        // Client designer pointers, 2026-11-20: messaging on migrating legacy applications using AI.
+        kind: "cards",
+        id: "ai-migration",
+        tag: "AI-assisted migration",
+        icon: "spark",
+        heading: "Legacy migration, sped up with AI.",
+        lead: "We use AI to read, document, and convert legacy code, and our engineers review every change. Migrations move faster, and the business rules in the old system carry across.",
+        cols: 4,
+        items: [
+          { title: "Code analysis and documentation", text: "AI reads COBOL, Delphi, Visual Basic, and Java code and documents the business rules, dependencies, and data flows nobody wrote down.", icon: "search" },
+          { title: "Code conversion, reviewed", text: "AI drafts the move to C# and .NET or modern Java, and our engineers review and test every change before it ships.", icon: "code" },
+          { title: "Generated regression tests", text: "AI writes tests from how the legacy application behaves today, so the migrated version proves it does the same job.", icon: "shield" },
+          { title: "Data mapping", text: "AI proposes schema mappings and transformation rules, which we check against samples of your real data.", icon: "db" },
+        ],
+        note: "Built with GitHub Copilot, Azure OpenAI Service, and Claude, inside your security controls.",
       },
       {
         kind: "cards",
@@ -184,7 +205,8 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
       { kind: "faq" },
     ],
     faqs: [
-      { q: "Which legacy platforms do you migrate from and to?", a: "We migrate apps written in COBOL, Visual Basic, PowerBuilder, .NET Framework, and more, running on mainframes or servers, to Microsoft Azure, AWS, and Google Cloud." },
+      { q: "Which legacy platforms do you migrate from and to?", a: "We migrate apps written in COBOL, RPG, Visual Basic, Delphi, PowerBuilder, Java, .NET Framework, and more, running on mainframes or servers, to Microsoft Azure, AWS, and Google Cloud." },
+      { q: "How do you use AI in a legacy migration?", a: "AI reads and documents the legacy code, drafts the conversion, and writes regression tests from how the old application behaves. Our engineers review and test every change before it ships." },
       { q: "Do you re-architect legacy code or just lift and shift?", a: "Both. We offer lift-and-shift, re-platforming, and full re-architecting, and recommend the approach for each app based on your goals, timeline, and budget." },
       { q: "Do you commit to service levels after migration?", a: "Yes. We agree service levels for availability, response times, user load, data retrieval, and failover, and stay with you until the applications are stable in production." },
       { q: "Can you migrate live production systems without downtime?", a: "Yes. We synchronise on-premises and cloud platforms, use dual writes, and redirect traffic gradually, then retire the legacy systems after cutover." },
@@ -416,7 +438,7 @@ export const APPMOD_LAYOUTS: Record<string, ServiceLayout> = {
           { title: "Better reliability", text: "Cloud infrastructure improves stability, redundancy, and disaster recovery.", icon: "cloud" },
           { title: "Stronger security", text: "Modern secure coding practices and controls protect your data.", icon: "shield" },
           { title: "Lower costs", text: "Less on-premises infrastructure and cloud-optimised licensing lower your total cost of ownership.", icon: "gauge" },
-          { title: "Future-proof systems", text: "A new stack ready for AI and machine learning.", icon: "spark" },
+          { title: "Systems ready for AI", text: "A new stack ready for AI and machine learning.", icon: "spark" },
           { title: "Operational efficiency", text: "Automation, analytics, and insight from new platforms improve workflows.", icon: "flow" },
         ],
       },

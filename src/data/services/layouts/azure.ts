@@ -9,6 +9,7 @@
 
 import type { ServiceLayout } from "../types";
 import { COMPANY_STATS } from "./shared";
+import { local } from "@/brand/regions";
 
 const A = "/images/photos/azure";
 const L = "/images/photos/live";
@@ -422,7 +423,8 @@ export const AZURE_LAYOUTS: Record<string, ServiceLayout> = {
               { label: "Emergency support by ticket", values: ["Yes", "Yes", "Yes"] },
               { label: "Support hours a month (no rollover)", values: ["15 hours", "30 hours", "No cap"] },
               { label: "Contract", values: ["6 months", "12 months", "12 months"] },
-              { label: "Extra hours", values: ["US$35 an hour", "US$35 an hour", "Not needed"] },
+              // The US$ rate is US-only; AU and India quote it (client P0, 2026-11-20).
+              { label: "Extra hours", values: local({ us: ["US$35 an hour", "US$35 an hour", "Not needed"], au: ["Quoted on request", "Quoted on request", "Not needed"], in: ["Quoted on request", "Quoted on request", "Not needed"] }) },
               { label: "Billing", values: ["Monthly, or 10% off when paid in advance", "Monthly, or 10% off when paid in advance", "Monthly"] },
               { label: "Account manager", values: ["Part-time, in business hours", "Dedicated, Monday to Friday", "Dedicated, Monday to Friday"] },
               { label: "Cost optimisation and audit", values: ["Cost forecasts, budgets, spending alerts, and optimisation advice", "Cost forecasts, budgets, spending alerts, optimisation advice, and a monthly infrastructure audit", "Cost forecasts, budgets, spending alerts, optimisation advice, and a monthly infrastructure audit"] },
@@ -454,7 +456,8 @@ export const AZURE_LAYOUTS: Record<string, ServiceLayout> = {
         heading: "Why choose AptaCloud for Azure managed services?",
         reverse: true,
         list: "cards",
-        photo: { src: `${L}/azure-clouds-laptop.jpg`, alt: "A laptop linked to a network of clouds on a blue digital background", position: "50% 50%" },
+        // Client, 2026-11-20: more server and cloud infrastructure imagery on the Azure pages (Pexels 325229).
+        photo: { src: "/images/photos/azure/man-datacentre.jpg", alt: "An aisle of server racks in a data centre", position: "50% 50%" },
         items: [
           { title: "Industry expertise", text: "Azure is a complete ecosystem for managing, scaling, and securing your work. As a Microsoft partner, we know where businesses get stuck and have years of experience helping them through.", icon: "spark" },
           { title: "A practical approach", text: "From set-up to migration and optimisation, our engineers handle networking and security, including DDoS protection, Azure Firewall, and Application Gateway.", icon: "shield" },

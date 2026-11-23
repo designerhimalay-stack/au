@@ -1009,7 +1009,8 @@ export const AZURE_PAGES: ServicePage[] = [
       title: "Connect your apps and data",
       accent: "on Microsoft Azure.",
       lead: "AptaCloud implements Azure integration services, from Logic Apps and API Management to Service Bus, Event Grid, Azure Functions, and Data Factory. We configure workloads, automation, governance, and disaster recovery, so your systems work together.",
-      photo: az("imp-coder", "A developer building an integration across two monitors in a bright office", "50% 40%"),
+      // Client, 2026-11-20: more server and cloud infrastructure imagery on the Azure pages (Pexels 37730212).
+      photo: az("imp-servers", "Server racks with their status lights on in a data centre", "50% 50%"),
       chip: { title: "Azure implementation", items: ["Integration and automation", "Governance and recovery", "Support after go-live"] },
       marks: ["logicApps", "apiManagement", "serviceBus"],
     },

@@ -605,7 +605,9 @@ export const MS_LAYOUTS: Record<string, ServiceLayout> = {
           "Whether you need document management, workflow automation, or business intelligence tools, our developers shape SharePoint to your needs. We integrate it with Microsoft 365, migrate you from outdated platforms, and support it after go-live.",
         ],
         cta: true,
-        photo: { src: `${P}/docs-pair.jpg`, alt: "Two colleagues reviewing shared documents at a desk", position: "50% 40%" },
+        // Client, 2026-11-20: real SharePoint visuals. A SharePoint Online intranet home page from Microsoft's
+        // PnP Starter Kit (MIT licence; credited in docs/agentcraft/PHOTO_CREDITS.md). The US swaps in another page.
+        photo: { src: "/images/photos/services/sharepoint-intranet.png", alt: "A SharePoint intranet home page with news, quick links, weather, and tasks", position: "50% 0%" },
       },
       {
         kind: "cards",
@@ -900,6 +902,25 @@ export const MS_LAYOUTS: Record<string, ServiceLayout> = {
           { title: "Power BI and dashboards", text: "Power BI and custom dashboards connected to your databases for real-time insight.", icon: "chart" },
           { title: "Monitoring and support", text: "Databases monitored around the clock, with issues prevented and performance kept high.", icon: "eye" },
           { title: "Backup and recovery", text: "Automated backup and a tested recovery plan, so critical data can be restored quickly.", icon: "shield" },
+        ],
+      },
+      {
+        // Client designer pointers, 2026-11-20: show the Microsoft database products (SQL Server, Azure SQL, and the rest).
+        kind: "cards",
+        id: "products",
+        style: "mark",
+        tag: "Products",
+        icon: "db",
+        heading: "The Microsoft database products we work with.",
+        lead: "We pick the engine for the workload, from SQL Server on your own servers to fully managed databases on Azure.",
+        cols: 3,
+        items: [
+          { title: "SQL Server", text: "Installs, upgrades from older versions, Always On availability groups, and performance tuning, on your servers or Azure virtual machines.", mark: "sqlServer" },
+          { title: "Azure SQL", text: "Azure SQL Database and Azure SQL Managed Instance: managed SQL with automatic backups, patching, and scaling.", mark: "azureSQL" },
+          { title: "Azure Cosmos DB", text: "A globally distributed NoSQL and vector database for telemetry, IoT, and AI applications that need low latency.", mark: "cosmos" },
+          { title: "Azure Database for PostgreSQL", text: "Managed PostgreSQL for open-source applications, with the same Azure security, backup, and monitoring.", mark: "azPostgres" },
+          { title: "Microsoft Fabric", text: "Warehouses and SQL analytics on one platform, fed from your operational databases for reporting and AI.", mark: "fabric" },
+          { title: "Azure Database Migration Service", text: "Online moves from SQL Server, Oracle, and other engines to Azure, with downtime kept to a short cutover.", mark: "dms" },
         ],
       },
       {
