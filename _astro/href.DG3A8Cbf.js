@@ -1,1 +1,0 @@
-import{i as e}from"./brand.CC-G_4BB.js";var t=t=>e(`/${t}/`);export{t};

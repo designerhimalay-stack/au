@@ -1,0 +1,1 @@
+import{i as e}from"./brand.C40PmROt.js";var t=t=>e(`/${t}/`);export{t};
