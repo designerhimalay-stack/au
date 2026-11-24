@@ -163,6 +163,16 @@ Status: `done` (already live from the 2026-11-18 round, verified in source) · `
 | B3 | Events: each event gets its own link and an image | done | every event has its own page (/events/<slug>/) with its own image; the listing shows photo cards |
 | AU-1 | AU hero: Sydney landmark | done | Sydney Opera House photo supplied by the user |
 
+## Audit after the round (2026-11-24): beyond the lists, in the clients' own terms
+
+- No rhetorical questions (SEO content rule): 38 section headings were questions ("Why choose AptaCloud?", "What process do we follow?"); now statements with the same keywords. Only published blog titles remain as questions.
+- Banned words and duplicates in blog excerpts (meta descriptions and listing summaries): 13 rewritten (leverage, unlock, seamless, "the best"; 2 duplicated descriptions). Article bodies stay as published.
+- Imagery fit (Hemant's "networking image" complaint applied everywhere): Legacy Migration hero was a telecom patch panel (AU) and fibre cables (US), now developers on legacy code; US Machine Learning was a blurred lab close-up, now data scientists reviewing results; AU AWS Managed Services was a TV control room, now an engineer on monitoring dashboards; US Dynamics 365 was shot through a doorway, now a team at a conference table. India's Fabric page had the Data Engineering photo; now its own.
+- Phones: blog topic chips raised to 44px tap targets.
+- Checked and left by design: pricing figures (live site), region-switcher links to other builds, India's redirect stubs, AWS product names in US spelling, Why AptaCloud cards in full on phones (client exception), AU industry heroes (the client's own live-site images).
+- For your decision: on phones the AU hero's Opera House sits behind the headline and dark tint; a fix means a different phone hero layout. The privacy policy names OTS Solutions Inc. and says "Contact us" (legal text; client to confirm).
+- Result: au 31 pass, us 28, in 28, 0 fail; photo repeats 0 on all three builds.
+
 ## Next session
 
 1. Run the strict, launch-checklist, and mobile audits on au, us, and in builds; screenshots at 390 / 768 / 1440 of the new pages (blog articles, events).

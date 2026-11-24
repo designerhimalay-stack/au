@@ -80,7 +80,7 @@ export const AZURE_LAYOUTS: Record<string, ServiceLayout> = {
         style: "icon",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for Azure migration?",
+        heading: "Why teams choose AptaCloud for Azure migration.",
         cols: 2,
         items: [
           { title: "Lower cost", text: "No large spend on infrastructure to move servers, applications, and databases. We size the resources you need and explain Azure's pay-as-you-go pricing.", icon: "gauge" },
@@ -302,7 +302,7 @@ export const AZURE_LAYOUTS: Record<string, ServiceLayout> = {
         head: "center",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for Azure cost and performance optimisation?",
+        heading: "Why teams choose AptaCloud for Azure cost and performance optimisation.",
         cols: 4,
         items: [
           { title: "A Microsoft-certified partner", text: "Microsoft-verified expertise and the full set of Azure tools, used to cut idle resources.", icon: "shield" },
@@ -453,7 +453,7 @@ export const AZURE_LAYOUTS: Record<string, ServiceLayout> = {
         id: "why-us",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for Azure managed services?",
+        heading: "Why teams choose AptaCloud for Azure managed services.",
         reverse: true,
         list: "cards",
         // Client, 2026-11-20: more server and cloud infrastructure imagery on the Azure pages (Pexels 325229).
@@ -583,7 +583,7 @@ export const AZURE_LAYOUTS: Record<string, ServiceLayout> = {
         id: "why-us",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud as your Azure security consultant?",
+        heading: "Why teams choose AptaCloud as their Azure security consultant.",
         reverse: true,
         cta: true,
         photo: { src: `${L}/azure-shield-chip.jpg`, alt: "A shield with a keyhole on a chip at the centre of a glowing circuit board", position: "50% 45%" },

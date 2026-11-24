@@ -202,6 +202,23 @@ if (step === "build") {
     return out + paras(run);
   }
 
+  /** Excerpts (meta description and listing summary) rewritten where the live one breaks the content rules
+   *  ("the best", "seamless") or repeats another post's description word for word. */
+  const EXCERPTS = {
+    "best-predictive-maintenance-software-oil-gas": "Eight predictive maintenance tools for oil and gas compared: what each does, where it fits, and how AI on sensor data prevents equipment failure.",
+    "microsoft-fabric-vs-azure-synapse-analytics-2026": "Microsoft Fabric and Azure Synapse Analytics compared: cost structures, real-time analytics, and what a move between them involves.",
+    "how-cloud-modernization-transforms-life-insurance-operations": "How moving life insurance administration to the cloud speeds up product launches, policy servicing, and compliance reporting.",
+    "generative-ai-consulting-services-pilot-into-production": "How generative AI consulting takes a pilot into production: the steps, the roles, and the checks that make it hold up.",
+    "a-practical-timeline-for-implementing-ai-in-business": "A realistic timeline for implementing AI in business, from the first use case to production, and what keeps it on schedule.",
+    "ai-myths-holding-growing-businesses-back": "Five common AI myths that hold growing businesses back, and how practical adoption, people, and ROI-led planning get real value from AI.",
+    "azure-hosting-ai-iot-future-proof-architecture": "How Azure hosting supports AI, IoT, and intelligent agents in a secure cloud architecture that scales with your business.",
+    "dynamics-365-over-quickbooks": "Why growing businesses move from QuickBooks to Microsoft Dynamics 365: scale, automation, reporting, and integration with the tools they already use.",
+    "how-a-dallas-bank-can-achieve-soc-2-type-ii-in-6-months-on-azure": "How a Dallas bank can reach SOC 2 Type II readiness on Azure in six months, and how AptaCloud's Azure consulting gets its workloads there.",
+    "how-ai-can-help-reduce-manual-processes-by-40-or-more": "Where AI removes manual work from enterprise workflows, and how AptaCloud's AI integration consulting automates the steps that take the most time.",
+    "how-cloud-erp-supports-remote-teams": "How cloud ERP supports remote teams with real-time collaboration, secure access, automation, and integration through Microsoft Dynamics 365.",
+    "step-by-step-guide-to-migrating-your-web-applications-to-microsoft-azure-2": "A step-by-step roadmap for migrating web applications to Microsoft Azure while keeping downtime low.",
+    "power-bi-dashboard-examples-10-dashboards-mid-sized-indian-companies-use": "Ten Power BI dashboards mid-sized Indian companies use, from sales and finance to operations, and what each one shows.",
+  };
   /** Per-post repairs for broken source markup. */
   const FIXES = {
     // The live post holds the article three times over; keep the first copy.
@@ -267,7 +284,7 @@ if (step === "build") {
     }
     const faqs = [...html.matchAll(/<details><summary>([\s\S]*?)<\/summary>([\s\S]*?)<\/details>/g)].map((m) => ({ q: clean(decode(m[1])), a: clean(decode(m[2].replace(/<[^>]+>/g, " "))) }));
     const words = clean(decode(html.replace(/<[^>]+>/g, " "))).split(" ").length;
-    const desc = clean(decode((post.yoast_head_json?.description || post.excerpt.rendered).replace(/<[^>]+>/g, " ")));
+    const desc = EXCERPTS[slug] ?? clean(decode((post.yoast_head_json?.description || post.excerpt.rendered).replace(/<[^>]+>/g, " ")));
     const excerpt = desc.length > 200 ? `${desc.slice(0, desc.lastIndexOf(" ", 197))}…` : desc;
     const out = { slug, source: post.link, title, date: post.date.slice(0, 10), modified: post.modified.slice(0, 10), excerpt, words, minutes: Math.max(1, Math.round(words / 230)), toc: ctx.toc, faqs, html };
     writeFileSync(new URL(`${slug}.json`, OUT), JSON.stringify(out, null, 1));

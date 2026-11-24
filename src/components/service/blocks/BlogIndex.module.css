@@ -322,7 +322,7 @@
   .browse { gap: 32px; grid-template-columns: minmax(0, 1fr); padding-top: 48px; }
   .sticky { position: static; }
   .topics { flex-direction: row; flex-wrap: wrap; gap: 6px; }
-  .topic { background: var(--card); border-radius: 999px; font-size: 14px; gap: 8px; padding: 8px 14px; }
+  .topic { background: var(--card); border-radius: 999px; font-size: 14px; gap: 8px; min-height: 44px; padding: 8px 16px; }
   .topicOn { background: var(--fg); color: var(--bg); }
   .topicOn .count { color: inherit; opacity: 0.7; }
 }

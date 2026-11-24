@@ -40,16 +40,16 @@
   { "from": "/images/photos/services/ms-identity.jpg", "id": 3861972, "alt": "An engineer working across a laptop and two monitors" },
   { "from": "/images/photos/services/ms-sharepoint.jpg", "id": 7648221, "alt": "A presenter sharing a document on a large screen" },
   { "from": "/images/photos/company/papers-hero.jpg", "id": 1181414, "alt": "A professional reading through research on her laptop" },
-  { "from": "/images/photos/services/legacy-rack.jpg", "id": 2881233, "alt": "Fibre cables connected to servers in a rack" },
+  { "from": "/images/photos/services/legacy-code.jpg", "id": 1181359, "alt": "A developer working through legacy application code on a laptop" },
   { "from": "/images/photos/aws/imp-dev.jpg", "id": 1181474, "alt": "A developer writing infrastructure code on her laptop" },
-  { "from": "/images/photos/aws/man-control.jpg", "id": 7988117, "alt": "An engineer monitoring managed systems at his workstation" },
+  { "from": "/images/photos/aws/man-dashboards.jpg", "id": 7988117, "alt": "An engineer monitoring managed systems at his workstation" },
   { "from": "/images/photos/services/data-eng.jpg", "id": 1181469, "alt": "Two data engineers working through pipeline code together" },
   { "from": "/images/photos/services/dwh-rack.jpg", "id": 2881232, "alt": "Network cables plugged into a switch in a data center" },
   { "from": "/images/photos/industry/design-hero.jpg", "id": 6615092, "alt": "Architects reviewing a building model together in their studio" },
   { "from": "/images/photos/industry/ec-hero.jpg", "id": 10202858, "alt": "Site crews in hard hats and vests at work on a concrete frame" },
   { "from": "/images/photos/industry/carriers-hero.jpg", "id": 8439657, "alt": "An insurance advisor going over a policy with a client" },
   { "from": "/images/photos/industry/tpa-hero.jpg", "id": 7736036, "alt": "A claims form being completed with a pen" },
-  { "from": "/images/photos/services/ml-robotics.jpg", "id": 32778341, "alt": "A laptop beside a robotic arm during testing in a lab" },
+  { "from": "/images/photos/services/ml-robotics.jpg", "id": 6248987, "alt": "Two data scientists reviewing model results on a laptop" },
   { "from": "/images/photos/industry/construction-hero.jpg", "id": 10202856, "alt": "Site engineers in hard hats inspecting rebar on a building frame" },
   { "from": "/images/photos/industry/field-hero.jpg", "id": 3862371, "alt": "A field engineer in a hard hat and hi-vis vest on site" },
   { "from": "/images/photos/company/about-story.jpg", "id": 1181355, "alt": "Colleagues talking through a project around a meeting table" },
@@ -246,5 +246,5 @@
   { "from": "/images/photos/people/r/pair-macbook-2.jpg", "id": 1181264, "alt": "Two colleagues working together away from their desks" },
   { "from": "/images/photos/people/r/monitor-group-2.jpg", "id": 2422287, "alt": "A specialist monitoring Dynamics 365 performance" },
   { "from": "/images/photos/people/r/chalk-brainstorm-2.jpg", "id": 2422283, "alt": "Two colleagues talking through a process" },
-  { "from": "/images/photos/people/r/d365-implementation-2.jpg", "id": 1181313, "alt": "A delivery team planning a Dynamics 365 rollout in an office" }
+  { "from": "/images/photos/people/r/d365-implementation-2.jpg", "id": 1181405, "alt": "A delivery team planning a Dynamics 365 rollout around a conference table" }
 ]

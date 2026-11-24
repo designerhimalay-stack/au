@@ -18,7 +18,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "overview",
         tag: "Why our services",
         icon: "db",
-        heading: "Why choose our data engineering services?",
+        heading: "Why teams choose our data engineering services.",
         body: [
           "AptaCloud helps organisations get the full value from their data with practical engineering.",
           "Whether you want to improve operations, make better decisions, or drive digital transformation, our data engineering consultants guide you at every step.",
@@ -31,7 +31,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "services",
         tag: "What we do",
         icon: "layers",
-        heading: "What data engineering services do we offer?",
+        heading: "Data engineering services we offer.",
         cols: 4,
         items: [
           { title: "Data engineering consulting", text: "Scalable data architectures designed for large-scale analytics and your long-term needs.", icon: "team" },
@@ -72,7 +72,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "process",
         tag: "How we work",
         icon: "flow",
-        heading: "What process do we follow?",
+        heading: "The process we follow.",
         lead: "Six steps from the first conversation to a pipeline we monitor in production.",
         steps: [
           { title: "Discovery", text: "We learn your business needs, challenges, and goals to shape a data strategy that fits." },
@@ -184,7 +184,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "overview",
         tag: "Why our services",
         icon: "db",
-        heading: "Why choose our data warehousing services?",
+        heading: "Why teams choose our data warehousing services.",
         body: [
           "AptaCloud's data warehousing services help businesses centralise, analyse, and act on their data.",
           "With us, you improve operational efficiency, make decisions from one trusted source, and keep your data secure and compliant.",
@@ -198,7 +198,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "services",
         tag: "What we do",
         icon: "layers",
-        heading: "What services do we offer?",
+        heading: "The services we offer.",
         style: "centered",
         head: "center",
         cols: 2,
@@ -236,7 +236,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "process",
         tag: "How we work",
         icon: "flow",
-        heading: "What process do we follow?",
+        heading: "The process we follow.",
         lead: "Four stages, from kickoff to ongoing managed support.",
         variant: "curve",
         steps: [
@@ -284,7 +284,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "overview",
         tag: "Why AptaCloud",
         icon: "chart",
-        heading: "Why choose AptaCloud?",
+        heading: "Why teams choose AptaCloud.",
         body: [
           "We deliver data analytics and visualisation services shaped around your business objectives, with scalability, security, and compliance built in.",
           "Whether you want to streamline reporting, improve decision-making, or run operations more efficiently, our team designs the strategy with you.",
@@ -298,7 +298,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "services",
         tag: "What we do",
         icon: "layers",
-        heading: "What services do we offer?",
+        heading: "The services we offer.",
         groups: [
           {
             title: "Data analytics services",
@@ -352,7 +352,7 @@ export const DATA_LAYOUTS: Record<string, ServiceLayout> = {
         id: "process",
         tag: "How we work",
         icon: "flow",
-        heading: "What process do we follow?",
+        heading: "The process we follow.",
         lead: "Six steps from understanding your goals to dashboards we monitor in use.",
         variant: "curve",
         steps: [

@@ -26,7 +26,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         id: "services",
         tag: "Why AWS Compute",
         icon: "cloud",
-        heading: "Why choose AWS Compute?",
+        heading: "What AWS Compute gives you.",
         lead: "From virtual machines to serverless, AWS has a compute model for every workload. We help you choose the right one, then set it up.",
         ends: ["More control", "Less to manage"],
         models: [
@@ -70,7 +70,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         id: "why-us",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for AWS compute?",
+        heading: "Why teams choose AptaCloud for AWS compute.",
         list: "divided",
         photo: { src: `${L}/aws-cloud-hand.jpg`, alt: "A hand holding a glowing cloud over a digital network", position: "40% 50%" },
         items: [
@@ -186,7 +186,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         id: "why-us",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud as your AWS migration consultant?",
+        heading: "Why teams choose AptaCloud as their AWS migration consultant.",
         lead: "AWS migration services come with many features and tools, which is why a consultant helps. AptaCloud plans and runs AWS migrations for mid-sized businesses as an AWS partner.",
         list: "cards",
         photo: { src: `${L}/aws-migration-laptop.jpg`, alt: "Files moving from a laptop into an AWS cloud", position: "60% 50%" },
@@ -288,7 +288,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         head: "center",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud as your AWS implementation partner?",
+        heading: "Why teams choose AptaCloud as their AWS implementation partner.",
         lead: "A safe, flexible, adaptable cloud environment, built to industry best practice so your business can grow on it.",
         cols: 3,
         items: [
@@ -391,7 +391,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         style: "icon",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for AWS cost optimisation?",
+        heading: "Why teams choose AptaCloud for AWS cost optimisation.",
         lead: "A systematic, client-focused approach built on transparency, control, and continual improvement, so every dollar on AWS adds long-term value.",
         cols: 2,
         items: [
@@ -443,7 +443,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         id: "why-us",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for AWS managed services?",
+        heading: "Why teams choose AptaCloud for AWS managed services.",
         list: "flank",
         photo: { src: `${L}/tablet-icons.jpg`, alt: "A manager using a tablet surrounded by service icons", position: "28% 50%" },
         items: [
@@ -614,7 +614,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         id: "services",
         tag: "Why AWS security",
         icon: "shield",
-        heading: "Why choose AWS security services?",
+        heading: "What AWS security services give you.",
         lead: "Six areas of AWS security, grouped the way the work is done: protect what you run, detect what goes wrong, and prove you comply.",
         groups: [
           {
@@ -670,7 +670,7 @@ export const AWS_LAYOUTS: Record<string, ServiceLayout> = {
         id: "why-us",
         tag: "Why AptaCloud",
         icon: "team",
-        heading: "Why choose AptaCloud for AWS security?",
+        heading: "Why teams choose AptaCloud for AWS security.",
         list: "divided",
         photo: { src: `${L}/aws-security-network.jpg`, alt: "A cloud with a glowing padlock over a laptop keyboard", position: "35% 50%" },
         items: [
